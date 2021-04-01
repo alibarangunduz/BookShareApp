@@ -12,7 +12,7 @@
   top: 0; 
   z-index: 1;
   background-color: white; 
-  padding: 20px;
+  padding: 10px;
   border-bottom: 1px solid lightgrey;
   object-fit: contain;
   display: flex;
@@ -35,3 +35,8 @@
   
 }
 
+.app__createPost {
+  margin-top: 10px !important;
+  margin-left: 605px !important;
+  
+}
