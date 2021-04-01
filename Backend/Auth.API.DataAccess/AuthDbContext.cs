@@ -9,7 +9,7 @@ namespace AuthAPI.DataAccess
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);
-            optionsBuilder.UseSqlServer("Server=LAPTOP-4DK1AK5I\\SQLEXPRESS; Database=AuthUsers;uid=*;pwd=*;");
+            optionsBuilder.UseSqlServer("Server=..\\SQLEXPRESS; Database=*;uid=*;pwd=*;");
         }
         public DbSet<User> Users { get; set; }
         public DbSet<Post> Post { get; set; }
