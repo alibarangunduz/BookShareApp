@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AuthAPI.API</name>
+    </assembly>
+    <members>
+        <member name="M:AuthAPI.API.Controllers.AuthController.GetUserById(System.Int32)">
+            <summary>
+            Get user by Id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AuthAPI.API.Controllers.AuthController.GetUserByName(System.String)">
+            <summary>
+            Get UserBy Name
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AuthAPI.API.Controllers.AuthController.CreateUser(AuthAPI.Entites.User)">
+            <summary>
+            Create an User
+            </summary>
+            <param name="user"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AuthAPI.API.Controllers.AuthController.LoginUser(AuthAPI.Entites.LoginRequest)">
+            <summary>
+            User Login
+            </summary>
+            <param name="loginRequest"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AuthAPI.API.Controllers.AuthController.UpdateUser(AuthAPI.Entites.User)">
+            <summary>
+            Update the User
+            </summary>
+            <param name="user"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AuthAPI.API.Controllers.AuthController.DeleteUser(System.Int32)">
+            <summary>
+            Delete the User
+            </summary>
+            <param name="id"></param>
+        </member>
+        <member name="M:AuthAPI.API.Controllers.PostController.Get">
+            <summary>
+            Get ALL Posts
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AuthAPI.API.Controllers.PostController.CreatePost(AuthAPI.Entites.Post)">
+            <summary>
+            Create Post
+            </summary>
+            <param name="post"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AuthAPI.API.Controllers.PostController.LikePost(AuthAPI.Entites.Like)">
+            <summary>
+            Like Post
+            </summary>
+            <param name="like"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
