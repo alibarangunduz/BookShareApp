@@ -14,7 +14,7 @@ namespace AuthAPI.Business.Abstract
         Task<User> GetUserById(int id);
 
         Task<User> GetUserByName(string name);
-        Task<UserResult> CreateUser(User user);
+        Task<User> CreateUser(User user);
 
         Task<LoginResult> LoginUser(LoginRequest loginRequest);
         Task<User> UpdateUser(User user);

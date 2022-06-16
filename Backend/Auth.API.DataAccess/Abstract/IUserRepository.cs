@@ -13,7 +13,7 @@ namespace AuthAPI.DataAccess.Abstract
         public Task<User> GetUserById(int id);
 
         public Task<User> GetUserByName(string UserName);
-        public Task<UserResult> CreateUser(User user);
+        public Task<User> CreateUser(User user);
         public Task<User> UpdateUser(User user);
         public Task DeleteUser(int id);
     }

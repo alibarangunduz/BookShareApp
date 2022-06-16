@@ -10,6 +10,7 @@ namespace AuthAPI.Entites.Concrete
         public DateTime CreatedDate { get; set; }
         public int UserID { get; set; }
         public string Name { get; set; }
+        public string AccessToken { get; set; }
 
     }
 }

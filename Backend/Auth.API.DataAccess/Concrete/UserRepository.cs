@@ -11,12 +11,12 @@ namespace AuthAPI.DataAccess.Concrete
 {
     public class UserRepository : IUserRepository
     {
-        public async Task<UserResult> CreateUser(User user)
+        public async Task<User> CreateUser(User user)
         {
             using var AuthDbContext = new AuthDbContext();
             AuthDbContext.Users.Add(user);
             await AuthDbContext.SaveChangesAsync();
-            return new UserResult { IsSuccess = true, CreatedDate = DateTime.Now , UserID = user.Id, Name = user.Name};
+            return user;
         }
 
         public async Task DeleteUser(int id)

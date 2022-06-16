@@ -19,13 +19,13 @@ namespace AuthAPI.Business
             _userRepository = userRepository;
             _encryptOperation = encryptOperation;
         }
-        public async Task<UserResult> CreateUser(User user)
+        public async Task<User> CreateUser(User user)
         {
             User FetchUser = await _userRepository.GetUserByName(user.UserName);
             if (FetchUser!=null)
             {
 
-                return new UserResult { IsSuccess = false };
+                return user;
             }
             var encryptedPassword = _encryptOperation.Encrypt(user.Password);
             user.Password = encryptedPassword;

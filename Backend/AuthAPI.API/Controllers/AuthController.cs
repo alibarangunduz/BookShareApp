@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using AuthAPI.Business;
 using AuthAPI.Business.Abstract;
+using AuthAPI.Business.Services.Authenticators;
+using AuthAPI.Business.Services.TokenGenerators;
 using AuthAPI.Entites;
 using AuthAPI.Entites.Concrete;
 using Microsoft.AspNetCore.Http;
@@ -18,12 +20,13 @@ namespace AuthAPI.API.Controllers
     public class AuthController : ControllerBase
     {
         private IAuthService _authService;
-
+        private readonly Authenticator _authenticator;
 #pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
-        public AuthController(IAuthService authService)
+        public AuthController(IAuthService authService, Authenticator authenticator)
 #pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
         {
             _authService = authService;
+            _authenticator = authenticator;
         }
 
         
@@ -70,11 +73,20 @@ namespace AuthAPI.API.Controllers
         /// <returns></returns>
         [HttpPost]
         [Route("[Action]")]
-        public async Task<UserResult> CreateUser([FromBody] User user)//valid değilse zaten hiç giremeyecek
+        public async Task<IActionResult> CreateUser([FromBody] User user)//valid değilse zaten hiç giremeyecek
         {
-            
-            return await _authService.CreateUser(user);
-           
+            var response = await _authService.CreateUser(user);
+            var accessToken = await _authenticator.Authenticate(response);
+            if(accessToken == null)
+            {
+                return Unauthorized();
+            }
+            UserResult userResult = new UserResult();
+            userResult.AccessToken = accessToken;
+
+            return Ok(accessToken);
+
+
         }
         /// <summary>
         /// User Login
